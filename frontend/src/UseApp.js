@@ -6,8 +6,8 @@ const AppContext = createContext({
   me: "",
   signIn: false,
 });
-
-const c = new WebSocket(`ws://${window.location.hostname}:8080`);
+let portNum = window.location.port;
+const c = new WebSocket(`wss://${window.location.host}:${portNum}`);
 
 const AppProvider = (props) => {
   const [messages, setMessages] = useState([]);
